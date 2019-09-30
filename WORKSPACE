@@ -12,7 +12,7 @@ http_archive(
 http_archive(
     name = "boringssl",
     # Add this patch to see this issue fixed
-    patches = ["//:boringssl.patch"],
+    # patches = ["//:boringssl.patch"],
     sha256 = "36049e6cd09b353c83878cae0dd84e8b603ba1a40dcd74e44ebad101fc5c672d",
     strip_prefix = "boringssl-37b57ed537987f1b4c60c60fa1aba20f3a0f6d26",
     urls = ["https://github.com/google/boringssl/archive/37b57ed537987f1b4c60c60fa1aba20f3a0f6d26.tar.gz"],
