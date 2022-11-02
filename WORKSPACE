@@ -11,18 +11,21 @@ http_archive(
 
 http_archive(
     name = "boringssl",
-    # Add this patch to see this issue fixed
-    # patches = ["//:boringssl.patch"],
-    sha256 = "36049e6cd09b353c83878cae0dd84e8b603ba1a40dcd74e44ebad101fc5c672d",
-    strip_prefix = "boringssl-37b57ed537987f1b4c60c60fa1aba20f3a0f6d26",
-    urls = ["https://github.com/google/boringssl/archive/37b57ed537987f1b4c60c60fa1aba20f3a0f6d26.tar.gz"],
+    patches = [
+        # "//:boringssl.patch",  # Add this patch to see this issue fixed
+        "//:removewa.patch",
+    ],
+    sha256 = "c87e632f5e78b8e3b5bf441ae1d11906479b7225230df9bdacfee24357094a62",
+    strip_prefix = "boringssl-40b4c308a328ae05435971ca4719e6486e5b680e",
+    # From master-with-bazel branch
+    urls = ["https://github.com/google/boringssl/archive/40b4c308a328ae05435971ca4719e6486e5b680e.tar.gz"],
 )
 
 git_repository(
     name = "build_bazel_rules_apple",
-    commit = "a595f71b94f75d531ebdf8ae31cc8eb1ead6a480",
+    commit = "d37fa4fb115632866ee9ec7416cdd2dbf6a7ef18",
     remote = "https://github.com/bazelbuild/rules_apple.git",
-    shallow_since = "1568153651 -0700",
+    shallow_since = "1667300604 +0100",
 )
 
 load("@build_bazel_rules_apple//apple:repositories.bzl", "apple_rules_dependencies")
